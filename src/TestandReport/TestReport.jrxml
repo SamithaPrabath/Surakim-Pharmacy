@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DailyPaymentReport" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="90a60a5d-c6a5-4275-9925-9f8db7887552">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQL"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="PaymentDataset" uuid="e3c815d2-2f4f-4af5-a202-158dd370970f">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQL"/>
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<parameter name="tid" class="java.lang.Integer"/>
+		<queryString>
+			<![CDATA[select a.*,b.reference_range from (select subtest_name,Result,unit from test_results where test_id=$P!{tid}) a inner join (select reference_range,subtest_name from subtest) b on a.subtest_name=b.subtest_name;]]>
+		</queryString>
+		<field name="subtest_name" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="subtest_name"/>
+			<property name="com.jaspersoft.studio.field.label" value="subtest_name"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="a"/>
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="Result" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="Result"/>
+			<property name="com.jaspersoft.studio.field.label" value="Result"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="a"/>
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="unit" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="unit"/>
+			<property name="com.jaspersoft.studio.field.label" value="unit"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="a"/>
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="reference_range" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="reference_range"/>
+			<property name="com.jaspersoft.studio.field.label" value="reference_range"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="b"/>
+		</field>
+	</subDataset>
+	<parameter name="tid" class="java.lang.String"/>
+	<parameter name="name" class="java.lang.String"/>
+	<parameter name="sno" class="java.lang.String"/>
+	<parameter name="rby" class="java.lang.String"/>
+	<parameter name="specimen" class="java.lang.String"/>
+	<parameter name="date" class="java.lang.String"/>
+	<parameter name="age" class="java.lang.String"/>
+	<parameter name="location" class="java.lang.String"/>
+	<parameter name="gender" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from test;]]>
+	</queryString>
+	<field name="test_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="test_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="test_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="test"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pid" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="pid"/>
+		<property name="com.jaspersoft.studio.field.label" value="pid"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="test"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="test_type" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="test_type"/>
+		<property name="com.jaspersoft.studio.field.label" value="test_type"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="test"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="date" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="date"/>
+		<property name="com.jaspersoft.studio.field.label" value="date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="test"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sno" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="sno"/>
+		<property name="com.jaspersoft.studio.field.label" value="sno"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="test"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="stype" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="stype"/>
+		<property name="com.jaspersoft.studio.field.label" value="stype"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="test"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="location" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="location"/>
+		<property name="com.jaspersoft.studio.field.label" value="location"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="test"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="status" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="status"/>
+		<property name="com.jaspersoft.studio.field.label" value="status"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="test"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="paid_date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="paid_date"/>
+		<property name="com.jaspersoft.studio.field.label" value="paid_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="test"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="236">
+			<frame>
+				<reportElement mode="Opaque" x="-15" y="-15" width="595" height="251" backcolor="#FFFFFF" uuid="1716c9b2-6a0a-42c1-9d84-4644f2d926d8"/>
+				<staticText>
+					<reportElement x="62" y="10" width="510" height="43" forecolor="#0F0F0F" uuid="3d140e45-246a-4d7d-9535-11ec83fbf169"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Surakim Laboratory Services]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="150" width="180" height="100" forecolor="#0D0C0C" uuid="7da27399-486c-45a4-b715-e3a4b2c5be10"/>
+					<textElement textAlignment="Left">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Address : 233 C, Galahitiyawa, Ganemulla
+Telephone: 033-2264416
+Email : surakim@live.com]]></text>
+				</staticText>
+				<image>
+					<reportElement x="220" y="50" width="176" height="108" uuid="15a1865d-0a0f-418b-bdd0-0f0749f8eb6f"/>
+					<imageExpression><![CDATA["C:/Users/Thaveeshi/Desktop/Surakim/src/resources/back.jpeg"]]></imageExpression>
+				</image>
+				<line>
+					<reportElement x="2" y="240" width="591" height="5" uuid="8f1a8f8c-cbba-428e-b540-3eda7a001719"/>
+				</line>
+			</frame>
+		</band>
+	</title>
+	<detail>
+		<band height="414">
+			<componentElement>
+				<reportElement x="0" y="170" width="515" height="230" uuid="f9ec85a8-999d-4c55-8624-b732a65f5ff2">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="PaymentDataset" uuid="fb0b4ba8-326a-43cb-b6e3-1f8a6fa20483">
+						<datasetParameter name="tid">
+							<datasetParameterExpression><![CDATA[Integer.valueOf($P{tid})]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="140" uuid="4011d025-5bcc-4c6e-9bae-f79ca59e7065">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="140" height="30" uuid="64e424c2-5d20-48f2-b75d-4c3c1cc36ae6"/>
+								<text><![CDATA[SubTestName]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="140" height="30" uuid="4ad06007-0e68-46ee-81f2-9934cea85d20"/>
+								<textFieldExpression><![CDATA[$F{subtest_name}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="190" uuid="05b1b0bf-7338-4038-8254-4ae0f0b25e1f">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="190" height="30" uuid="36dd7545-7238-4c1e-aa29-6ce552ce80d5"/>
+								<text><![CDATA[Result]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="190" height="30" uuid="1c774e35-dd68-431f-a312-e956ac9ef72f"/>
+								<textFieldExpression><![CDATA[$F{Result}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="85" uuid="f5b0956e-9ff1-4e27-b99a-e0d56364b7e4">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="85" height="30" uuid="7b0f3348-d02b-4a41-aefd-a51265781f14"/>
+								<text><![CDATA[Unit]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="85" height="30" uuid="c92e871d-e5d1-43b5-807a-8bda2b1f7e51"/>
+								<textFieldExpression><![CDATA[$F{unit}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="50e7eee5-393f-405f-8e6b-07ac0c316165">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="7388b9fd-03ac-48bb-a287-d413afba0dca"/>
+								<text><![CDATA[Range]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="100" height="30" uuid="94af9f6d-e812-406b-b92b-2f0e6e6a7c3d"/>
+								<textFieldExpression><![CDATA[$F{reference_range}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="0" y="20" width="100" height="30" uuid="1ea36e30-a653-4d17-afc2-329b916fa896"/>
+				<textElement>
+					<font fontName="Arial Black" size="12"/>
+				</textElement>
+				<text><![CDATA[Patient Name]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="110" y="20" width="170" height="30" uuid="91dd5f2e-6b60-4b2c-919c-d434862063f1"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="20" width="70" height="30" uuid="28fdfa32-1a49-4a79-a6ee-a06b047a402e"/>
+				<textElement>
+					<font fontName="Arial Black" size="12"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="380" y="20" width="150" height="30" uuid="2a7708a3-5dcf-4580-907e-79399c6b0cdd"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="50" width="100" height="30" uuid="d7ec87fe-6fef-4d50-9a79-c8c38c1997a4"/>
+				<textElement>
+					<font fontName="Arial Black" size="12"/>
+				</textElement>
+				<text><![CDATA[Specimen No]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="110" y="50" width="170" height="30" uuid="b5d58ca5-4498-4465-9297-6bb8bf76963f"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{sno}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="50" width="70" height="30" uuid="b7e0b32e-f7f0-41b1-855f-3f5e42327d4f"/>
+				<textElement>
+					<font fontName="Arial Black" size="12"/>
+				</textElement>
+				<text><![CDATA[Age]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="380" y="50" width="150" height="30" uuid="d2afa738-3970-477b-bfb1-478f6c18a3d6"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{age}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="80" width="160" height="30" uuid="b86996e9-4e0a-4ef1-931f-3a7c06b3d86b"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{location}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="110" width="160" height="30" uuid="9632207a-c222-449c-b385-0c2a2448e55a"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{gender}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="80" width="70" height="30" uuid="2403eddc-44f3-43f9-9b78-a0b1f58050ae"/>
+				<textElement>
+					<font fontName="Arial Black" size="12"/>
+				</textElement>
+				<text><![CDATA[Location]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="110" width="70" height="30" uuid="93ebb83d-fbc4-4da1-ae83-7069093a061a"/>
+				<textElement>
+					<font fontName="Arial Black" size="12"/>
+				</textElement>
+				<text><![CDATA[Gender]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="110" y="80" width="170" height="30" uuid="c2cd91be-2cb5-4a7a-a1dd-62495274ee1f"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{rby}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="110" width="170" height="30" uuid="99b2a7be-da5d-4f5d-af66-cce146f5dd9d"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{specimen}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="80" width="100" height="30" uuid="4c843543-c97f-4f42-be95-eb807fd61073"/>
+				<textElement>
+					<font fontName="Arial Black" size="12"/>
+				</textElement>
+				<text><![CDATA[Reffered By]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="109" width="100" height="30" uuid="769e1139-8c15-4c7c-b649-bad5f0ecd781"/>
+				<textElement>
+					<font fontName="Arial Black" size="12"/>
+				</textElement>
+				<text><![CDATA[Specimen]]></text>
+			</staticText>
+			<line>
+				<reportElement x="290" y="4" width="1" height="146" uuid="34dc03d6-4b32-482a-ac6d-52a5efd2d1a1"/>
+			</line>
+			<line>
+				<reportElement x="-20" y="160" width="595" height="1" uuid="17931933-1702-429a-aab4-e13e0cb1c8f9"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
